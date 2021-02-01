@@ -25,17 +25,28 @@
 - name: Restart neo4j
   service: name=neo4j state=restarted enabled=yes
   
-- block: 
-  - name: Copy init_password
-    template:
-      src: neo4j.sh
-      dest: /data/config/neo4j.sh
+# - block: 
+#   - name: Copy init_password
+#     template:
+#       src: neo4j.sh
+#       dest: /data/config/neo4j.sh
 
-  - name: Execute init password
-    shell: bash /data/config/neo4j.sh
-  when: neo4j_version != "3.5"
+#   - name: Execute init password
+#     shell: bash /data/config/neo4j.sh
+#   when: neo4j_version != "3.5"
 
 # add soft link
+- name: Create link  
+  file:
+    src: '{{item.src}}'
+    dest: '{{item.dest}}'
+    state: link
+  with_items:
+    - {src: /var/lib/neo4j/,dest: /data/neo4j}
+    - {src: /etc/neo4j/neo4j.conf,dest: /data/neo4j/neo4j.conf}
+    - {src: /etc/neo4j/neo4j.conf,dest: /dta/config/neo4j.conf}
+    - {src: /var/log/neo4j/,dest: /data/neo4j/log}
+    - {src: /var/log/neo4j/,dest: /data/logs/neo4j}
 
 # print version
 - block:
