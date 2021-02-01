@@ -42,9 +42,11 @@ The main variables of this Role and how to use them are as follows:
 neo4j_version: "4.1"
 ```
 
-## Documentation
+## Resources
 
-Refer to: https://support.websoft9.com/docs/neo4j
+* [Documentation](https://support.websoft9.com/docs/neo4j)
+* [Deploy by Image](https://apps.websoft9.com/neo4j)
+* [Deploy by Script](https://github.com/websoft9/ansible-neo4j)
 
 ## License
 
