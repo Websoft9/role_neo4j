@@ -1,30 +1,31 @@
-Ansible Role: Template
+Ansible Role: Neo4j
 =========
 
-This Role used for install NoSQL database system [Couchbash](https://www.couchbase.com/)
+This role is for you to install **Neo4j**.  
+
+If you want this role to support more applications, you can [**submit Issues**](https://github.com/websoft9dev/role_docker/issues/new/choose) for us.
 
 ## Requirements
 
-Make sure these requirements need before the installation
+Make sure these requirements need before the installation:
 
 | **Items**      | **Details** |
 | ------------------| ------------------|
-| Operating system | CentOS7.x Ubuntu18.04 AmazonLinux|
-| Python version | Python2  |
-| Python Components |    |
-| Runtime |  |
+| Operating system | CentOS7.x Ubuntu18.04 |
+| Python version | Python2, Python3  |
+| Runtime | Java |
 
+Note: 
 
 ## Related roles
 
-This Role does not depend on other role variables in syntax, but it depend on other role before
+This Role does not depend on other role variables in syntax, but it depend on other role before:
 
 ```
-  roles:
-    - {role: role_common, tags: "role_common"}
-    - {role: role_template, tags: "role_couchbase"}
+roles:
+  - { role: role_common }
+  - { role：role_jdk }
 ```
-
 
 ## Variables
 
@@ -32,31 +33,23 @@ The main variables of this Role and how to use them are as follows:
 
 | **Items**      | **Details** | **Format**  | **Need to assignment** |
 | ------------------| ------------------|-----|-----|
-| template_applications | True, False | Boolean | No |
+| neo4j_version | 4.1 | String | No |
 
-notes: 
-
-1. ×××××××
-2. ×××××××
 
 ## Example
 
 ```
-- name: Memcached
-  hosts: all
-  become: yes
-  become_method: sudo 
-  vars_files:
-    - vars/main.yml 
-
-  roles:
-    - {role: role_common, tags: "role_common"}
-    - {role: role_cloud, tags: "role_cloud"}
-    - {role: role_template, tags: "role_template"}
+neo4j_version: "4.1"
 ```
+
+## License
+
+[LGPL-3.0](/License.md), Additional Terms: It is not allowed to publish free or paid image based on this repository in any Cloud platform's Marketplace.
+
+Copyright (c) 2016-present, Websoft9
 
 ## FAQ
 
-1. Every role name must start with **role_**
-2. Minimal dependence other roles
-3. Variable must reasonable, and program syntax complete
+#### Is there any web-based GUI tool for Neo4j?
+
+Yes, the Neo4j Browser is installed by default
