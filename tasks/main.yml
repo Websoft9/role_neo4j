@@ -44,7 +44,7 @@
   with_items:
     - {src: /var/lib/neo4j/,dest: /data/neo4j}
     - {src: /etc/neo4j/neo4j.conf,dest: /data/neo4j/neo4j.conf}
-    - {src: /etc/neo4j/neo4j.conf,dest: /dta/config/neo4j.conf}
+    - {src: /etc/neo4j/neo4j.conf,dest: /data/config/neo4j.conf}
     - {src: /var/log/neo4j/,dest: /data/neo4j/log}
     - {src: /var/log/neo4j/,dest: /data/logs/neo4j}
 

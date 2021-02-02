@@ -9,10 +9,10 @@ neo4j_version_meta:
      "4.1":
         repo: ""
         package: "4.1.*"
-      "4.2":
+     "4.2":
         repo: ""
         package: "4.2.*"
-   Debian:
+  Debian:
       "3.5":
         repo: "3.5"
         package: ""
