@@ -39,7 +39,11 @@ The main variables of this Role and how to use them are as follows:
 ## Example
 
 ```
+# Install a special version
 neo4j_version: "4.1"
+
+# Install the latest version
+neo4j_version: "latest"
 ```
 
 ## Resources
