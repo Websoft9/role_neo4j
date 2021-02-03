@@ -9,7 +9,7 @@
     regexp: '#dbms.default_listen_address=0.0.0.0'
     line: "dbms.default_listen_address=0.0.0.0"
     state: present
-  when: neo4j_version != "3.5"
+  when: neo4j_version >= "4.0"
     
 - name: setting neo4j
   lineinfile:
@@ -17,10 +17,12 @@
     regexp: '#dbms.connector.bolt.listen_address=:7687'
     line: "dbms.connector.bolt.listen_address=0.0.0.0:7687"
     state: present
-  when: neo4j_version == "3.5"
+  when: neo4j_version <= "3.5"
 
 - name: Set default password for user neo4j before starting up the database for the first time
-  shell: neo4j-admin set-initial-password {{neo4j_root_password}}
+  shell: |
+    rm -rf /var/lib/neo4j/data/dbms/auth 
+    neo4j-admin set-initial-password {{neo4j_root_password}}
       
 - name: Restart neo4j
   service: name=neo4j state=restarted enabled=yes
