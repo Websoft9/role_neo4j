@@ -15,6 +15,9 @@ neo4j_version_meta:
      "4.2":
         repo: ""
         package: "neo4j-4.2.*"
+     "4.3":
+        repo: ""
+        package: "neo4j-4.3.*"
      "latest":
         repo: ""
         package: "neo4j"
@@ -33,6 +36,9 @@ neo4j_version_meta:
         package: ""
       "4.2":
         repo: "4.2"
+        package: ""
+      "4.3":
+        repo: "4.3"
         package: ""
       "latest":
         repo: "latest"
